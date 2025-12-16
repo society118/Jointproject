@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+
+<h2>Вход</h2>
+
+{% if name %}
+    <p>Вы уже вошли как <b>{{ name }}</b></p>
+    <a href="/">На главную</a>
+{% else %}
+    <form action="/login/submit/" method="post">
+        <input type="text" name="username" placeholder="Логин" required><br><br>
+        <input type="password" name="password" placeholder="Пароль" required><br><br>
+        <button type="submit">Войти</button>
+    </form>
+
+    <p>
+        Нет аккаунта?
+        <a href="/register/">Регистрация</a>
+    </p>
+{% endif %}
+
+</body>
+</html>
